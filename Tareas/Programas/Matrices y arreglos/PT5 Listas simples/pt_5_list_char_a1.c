@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 
 /*
  Facultad de Estudios Superiores Acatlan
@@ -15,6 +13,9 @@ Deberá llenarse con al menos 10 caracteres de forma previa
 Deberá contar con 4 funciones para añadir los siguientes valores en distintas locaciones de la estructura: A, W, T, M; pueden ser insertados en la cabeza, o en cualquier parte de la lista
 Deberá contar con 4 funciones para eliminar en distintas locaciones de la estructura como la cabeza o cualquier región
 */
+
+#include <stdio.h>
+#include <stdlib.h>
 
 
 // Estructura de nodo
