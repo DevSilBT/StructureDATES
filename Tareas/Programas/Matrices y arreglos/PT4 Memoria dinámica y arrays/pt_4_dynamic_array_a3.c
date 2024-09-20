@@ -44,7 +44,7 @@ int main() {
         }
     }
 
-    // Imprimimos el arreglo
+
     printf("El arreglo bidimensional es:\n");
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {
@@ -53,7 +53,7 @@ int main() {
         printf("\n");
     }
 
-    // Liberamos la memoria asignada
+
     for (i = 0; i < 3; i++) {
         free(arreglo[i]);
     }
