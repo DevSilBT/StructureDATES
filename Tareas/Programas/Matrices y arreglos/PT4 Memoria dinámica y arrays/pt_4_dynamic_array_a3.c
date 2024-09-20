@@ -19,23 +19,22 @@ dígitos correspondientes a su cuenta.
 int main() {
     int num_cuenta, i, j;
 
-    // Pedimos al usuario el numero de cuenta
+
     printf("Ingrese su numero de cuenta (9 digitos): ");
     scanf("%d", &num_cuenta);
 
-    // Verificamos que el numero de cuenta tenga 9 dígitos
+  
     if (num_cuenta < 100000000 || num_cuenta > 999999999) {
         printf("El numero de cuenta debe tener exactamente 9 dígitos.\n");
         return 1;
     }
 
-    // Creamos un arreglo bidimensional dinámico de tamaño 3x3
     int **arreglo = (int **)malloc(3 * sizeof(int *));
     for (i = 0; i < 3; i++) {
         arreglo[i] = (int *)malloc(3 * sizeof(int));
     }
 
-    // Rellenamos el arreglo con los dígitos del numero de cuenta
+    
     int digito;
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {

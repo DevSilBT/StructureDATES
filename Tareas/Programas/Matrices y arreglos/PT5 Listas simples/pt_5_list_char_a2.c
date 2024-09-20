@@ -17,13 +17,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Estructura del nodo de la lista enlazada
+
 typedef struct Nodo {
     char dato;
     struct Nodo* siguiente;
 } Nodo;
 
-// Función para crear un nuevo nodo
+
 Nodo* crearNodo(char valor) {
     Nodo* nuevoNodo = (Nodo*)malloc(sizeof(Nodo));
     if (!nuevoNodo) {
@@ -35,14 +35,14 @@ Nodo* crearNodo(char valor) {
     return nuevoNodo;
 }
 
-// Función para insertar al inicio
+
 void insertarInicio(Nodo** cabeza, char valor) {
     Nodo* nuevoNodo = crearNodo(valor);
     nuevoNodo->siguiente = *cabeza;
     *cabeza = nuevoNodo;
 }
 
-// Función para insertar al final
+
 void insertarFinal(Nodo** cabeza, char valor) {
     Nodo* nuevoNodo = crearNodo(valor);
     if (*cabeza == NULL) {
@@ -56,7 +56,6 @@ void insertarFinal(Nodo** cabeza, char valor) {
     }
 }
 
-// Función para insertar despues de un nodo dado
 void insertarDespues(Nodo* prevNodo, char valor) {
     if (prevNodo == NULL) {
         printf("El nodo anterior no puede ser NULL.\n");
@@ -67,7 +66,7 @@ void insertarDespues(Nodo* prevNodo, char valor) {
     prevNodo->siguiente = nuevoNodo;
 }
 
-// Funcion para insertar en una posicion específica
+
 void insertarEnPosicion(Nodo** cabeza, char valor, int posicion) {
     if (posicion == 0) {
         insertarInicio(cabeza, valor);
@@ -85,7 +84,6 @@ void insertarEnPosicion(Nodo** cabeza, char valor, int posicion) {
     insertarDespues(temp, valor);
 }
 
-// Función para eliminar al inicio
 void eliminarInicio(Nodo** cabeza) {
     if (*cabeza == NULL) {
         printf("La lista esta vacia.\n");
@@ -96,7 +94,6 @@ void eliminarInicio(Nodo** cabeza) {
     free(temp);
 }
 
-// Función para eliminar al final
 void eliminarFinal(Nodo** cabeza) {
     if (*cabeza == NULL) {
         printf("La lista esta vacia.\n");
@@ -116,7 +113,7 @@ void eliminarFinal(Nodo** cabeza) {
     free(temp);
 }
 
-// Función para eliminar un nodo dado
+
 void eliminarNodo(Nodo** cabeza, char valor) {
     if (*cabeza == NULL) {
         printf("La lista esta vacia.\n");
@@ -140,7 +137,7 @@ void eliminarNodo(Nodo** cabeza, char valor) {
     free(temp);
 }
 
-// Funcion para eliminar en una posición específica
+
 void eliminarEnPosicion(Nodo** cabeza, int posicion) {
     if (*cabeza == NULL) {
         printf("La lista esta vacia.\n");
@@ -166,7 +163,7 @@ void eliminarEnPosicion(Nodo** cabeza, int posicion) {
     free(temp);
 }
 
-// Función para imprimir la lista enlazada
+
 void imprimirLista(Nodo* cabeza) {
     while (cabeza != NULL) {
         printf("%c -> ", cabeza->dato);
@@ -175,11 +172,11 @@ void imprimirLista(Nodo* cabeza) {
     printf("NULL\n");
 }
 
-// Función principal
+
 int main() {
     Nodo* lista = NULL;
 
-    // Insertando elementos iniciales
+
     insertarFinal(&lista, 'A');
     insertarFinal(&lista, 'B');
     insertarFinal(&lista, 'C');
@@ -187,20 +184,20 @@ int main() {
     printf("Lista original:\n");
     imprimirLista(lista);
 
-    // Insertando nuevos elementos (D, R, o, 9)
-    insertarInicio(&lista, 'D'); // Insertar 'D' al inicio
-    insertarFinal(&lista, 'R');  // Insertar 'R' al final
-    insertarEnPosicion(&lista, 'o', 2); // Insertar 'o' en la posición 2
-    insertarDespues(lista->siguiente, '9'); // Insertar '9' después del segundo nodo
+    
+    insertarInicio(&lista, 'D'); 
+    insertarFinal(&lista, 'R');  
+    insertarEnPosicion(&lista, 'o', 2); 
+    insertarDespues(lista->siguiente, '9'); 
 
     printf("\nLista despues de inserciones:\n");
     imprimirLista(lista);
 
-    // Eliminando elementos en distintas posiciones
-    eliminarInicio(&lista);  // Eliminar al inicio
-    eliminarFinal(&lista);   // Eliminar al final
-    eliminarEnPosicion(&lista, 1); // Eliminar en la posición 1
-    eliminarNodo(&lista, 'B');     // Eliminar el nodo con valor 'B'
+    
+    eliminarInicio(&lista); 
+    eliminarFinal(&lista);   
+    eliminarEnPosicion(&lista, 1); 
+    eliminarNodo(&lista, 'B');     
 
     printf("\nLista despues de eliminaciones:\n");
     imprimirLista(lista);
